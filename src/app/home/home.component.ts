@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CongressService } from "../services/congress.service";
+import {Observable} from "rxjs";
+import MemberList from "../models/MemberList";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  membersList: MemberList[] = [];
+
+  constructor(private congress$: CongressService) { }
 
   ngOnInit(): void {
+    this.congress$.getAllMembers().subscribe(res => {
+      this.membersList = res;
+    });
   }
 
 }

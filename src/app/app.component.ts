@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CongressService } from './services/congress.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,5 @@ import { CongressService } from './services/congress.service';
 export class AppComponent {
   title = 'sample-project';
 
-  constructor(private congressService: CongressService) {
-    // this.congressService.getAllMembers();
-  }
+  constructor() { }
 }

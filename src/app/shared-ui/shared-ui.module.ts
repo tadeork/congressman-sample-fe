@@ -15,11 +15,12 @@ import { MembersListComponent } from './members-list/members-list.component';
   ],
   imports: [
     CommonModule,
-    MaterialSharedModule
+    MaterialSharedModule,
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MembersListComponent
   ]
 })
 export class SharedUiModule { }
