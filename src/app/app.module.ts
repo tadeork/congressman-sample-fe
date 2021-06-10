@@ -8,9 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderInterceptor } from './interceptors/header.interceptor';
 import { SharedUiModule } from './shared-ui/shared-ui.module';
 import { MaterialSharedModule } from './material-shared/material-shared.module';
+import { HomeComponent } from './home/home.component';
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
