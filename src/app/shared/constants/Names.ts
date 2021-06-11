@@ -1,4 +1,4 @@
 export const PartyNames = {
   D: 'Democrat',
-  R: 'Republican'
-}
+  R: 'Republican',
+};
