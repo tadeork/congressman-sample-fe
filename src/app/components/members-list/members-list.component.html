@@ -15,7 +15,7 @@
 
     <ng-container matColumnDef="party">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Party</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.party}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{element.party | partyName}}</mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

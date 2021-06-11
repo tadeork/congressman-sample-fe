@@ -13,13 +13,15 @@ import { ToastrModule } from "ngx-toastr";
 import { ErrorInterceptor } from "./interceptors/error.interceptor";
 import { MemberDetailComponent } from './components/member-detail/member-detail.component';
 import { MembersListComponent } from "./components/members-list/members-list.component";
+import { PartyNamePipe } from './utils/party-name.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MembersListComponent,
-    MemberDetailComponent
+    MemberDetailComponent,
+    PartyNamePipe
   ],
   imports: [
     BrowserModule,
