@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 import MemberList from '../../models/MemberList';
 import { MatTableDataSource } from "@angular/material/table";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'members-list',
@@ -12,7 +13,7 @@ export class MembersListComponent implements OnInit {
   public dataSource = new MatTableDataSource<MemberList>();
   displayedColumns = ['name', 'title', 'party'];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnChanges(): void {
     this.dataSource.data = this.membersList;
@@ -22,7 +23,7 @@ export class MembersListComponent implements OnInit {
   }
 
   navigateDetails(e: any) {
-    console.log('navigate details', e)
+    this.router.navigate(['member', e]);
   }
 
 }
