@@ -1,31 +1,39 @@
-<div class="list">
+<div class="list" >
   <mat-form-field>
-    <input type="text" (keyup)="applyFilter($event.target)"  placeholder="Search" matInput>
+    <input type="text" (keyup)="applyFilter($event.target)" placeholder="Search" matInput>
   </mat-form-field>
-  <mat-table [dataSource]="membersList" class="members-table mat-elevation-z8" matSort matSortDirection="asc">
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.first_name}} {{element.last_name}}</mat-cell>
-    </ng-container>
+  <div class="mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" class="members-table " matSort matSortDirection="asc">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.first_name}} {{element.last_name}}</mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="title">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.title}}</mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.title}}</mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="party">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Party</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.party | partyName}}</mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="party">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Party</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.party | partyName}}</mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="state">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>State</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.state}}</mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="state">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>State</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.state}}</mat-cell>
+      </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <ng-container matColumnDef="gender">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Gender</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.gender | gender}}</mat-cell>
+      </ng-container>
 
-    <mat-row *matRowDef="let row; columns: displayedColumns" (click)="navigateDetails(row.id)"></mat-row>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 
-  </mat-table>
+      <mat-row *matRowDef="let row; columns: displayedColumns" (click)="navigateDetails(row.id)"></mat-row>
+
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[7, 14, 21]" showFirstLastButtons></mat-paginator>
+  </div>
 </div>
