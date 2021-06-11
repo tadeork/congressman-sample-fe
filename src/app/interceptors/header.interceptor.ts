@@ -3,10 +3,10 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { API_KEY, CONGRESS_API_URL } from '../constants/APIEndpoints';
+import { API_KEY, CONGRESS_API_URL } from '../shared/constants/APIEndpoints';
 
 @Injectable()
 export class HeaderInterceptor implements HttpInterceptor {
@@ -21,7 +21,7 @@ export class HeaderInterceptor implements HttpInterceptor {
     }
 
     const modified = request.clone({
-      setHeaders: { 'X-API-Key': API_KEY, 'accept': '*/*'},
+      setHeaders: { 'X-API-Key': API_KEY, accept: '*/*' },
     });
 
     return next.handle(modified);

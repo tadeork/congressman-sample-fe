@@ -1,17 +1,14 @@
+.list {
+  width: 80%;
+  margin: auto;
+  padding-top: 10px;
+}
+
 .members-table {
   width: 100%;
   overflow-x: auto;
-  overflow-y: hidden;
+  //overflow-y: hidden;
   text-align: center;
-  //min-width: 500px;
-  //max-width: 850px;
-  //margin: 0 auto;
-}
-
-.mat-header-cell {
-  text-align: center;
-  //min-width: 120px;
-  max-width: 300px;
 }
 
 .mat-row .mat-cell {
@@ -22,9 +19,4 @@
 
 .mat-row:hover .mat-cell {
   border-color: currentColor;
-}
-
-::ng-deep .mat-cell {
-  text-align: left;
-  width: 130px;
 }
