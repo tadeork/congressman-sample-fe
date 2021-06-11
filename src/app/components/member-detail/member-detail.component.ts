@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from "@angular/router";
 import { CongressService } from "../../services/congress.service";
-import { MemberDetails } from "../../models/MemberDetails"
+import { MemberDetails } from "../../shared/models/MemberDetails"
 import { switchMap } from "rxjs/operators";
 import { Observable } from "rxjs";
 

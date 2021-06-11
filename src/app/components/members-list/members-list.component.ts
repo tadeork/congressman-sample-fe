@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, OnChanges, ViewChild, AfterViewInit } from '@angular/core';
-import MemberList from '../../models/MemberList';
+import MemberList from '../../shared/models/MemberList';
 import { MatTableDataSource } from "@angular/material/table";
 import { Router } from "@angular/router";
 import {MatSort} from "@angular/material/sort";
@@ -13,7 +13,7 @@ export class MembersListComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort = new MatSort();
   @Input() membersList: MemberList[] = [];
   public dataSource = new MatTableDataSource<MemberList>();
-  displayedColumns = ['name', 'title', 'party'];
+  displayedColumns = ['name', 'title', 'party', 'state'];
 
   constructor(private router: Router) { }
 

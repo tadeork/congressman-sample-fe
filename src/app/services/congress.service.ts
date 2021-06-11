@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {CONGRESS_API_URL, MEMBER_DETAIL, MEMBERS_LIST} from '../constants/APIEndpoints';
+import { CONGRESS_API_URL, MEMBER_DETAIL, MEMBERS_LIST } from '../shared/constants/APIEndpoints';
 import { map } from "rxjs/operators";
 
 @Injectable({

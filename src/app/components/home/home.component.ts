@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CongressService } from "../../services/congress.service";
-import MemberList from "../../models/MemberList";
+import MemberList from "../../shared/models/MemberList";
 
 @Component({
   selector: 'app-home',

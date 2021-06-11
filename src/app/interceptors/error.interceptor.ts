@@ -9,7 +9,7 @@ import {
 import { catchError, retry } from "rxjs/operators";
 import { Observable, throwError } from 'rxjs';
 import { ToastrService } from "ngx-toastr";
-import { ERROR_UNAUTHORIZED_MESSAGE, ERROR_UNKNOWN_MESSAGE } from "../constants/Messages";
+import { ERROR_UNAUTHORIZED_MESSAGE, ERROR_UNKNOWN_MESSAGE } from "../shared/constants/Messages";
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {

@@ -6,7 +6,7 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { API_KEY, CONGRESS_API_URL } from '../constants/APIEndpoints';
+import { API_KEY, CONGRESS_API_URL } from '../shared/constants/APIEndpoints';
 
 @Injectable()
 export class HeaderInterceptor implements HttpInterceptor {

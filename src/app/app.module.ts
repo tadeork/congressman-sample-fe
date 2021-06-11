@@ -13,8 +13,9 @@ import { ToastrModule } from "ngx-toastr";
 import { ErrorInterceptor } from "./interceptors/error.interceptor";
 import { MemberDetailComponent } from './components/member-detail/member-detail.component';
 import { MembersListComponent } from "./components/members-list/members-list.component";
-import { PartyNamePipe } from './utils/party-name.pipe';
-import {LoggerInterceptor} from "./interceptors/logger.interceptor";
+import { PartyNamePipe } from './shared/utils/party-name.pipe';
+import { LoggerInterceptor } from "./interceptors/logger.interceptor";
+import { GenderPipe } from './shared/utils/gender.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {LoggerInterceptor} from "./interceptors/logger.interceptor";
     HomeComponent,
     MembersListComponent,
     MemberDetailComponent,
-    PartyNamePipe
+    PartyNamePipe,
+    GenderPipe
   ],
   imports: [
     BrowserModule,
