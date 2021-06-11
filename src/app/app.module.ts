@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderInterceptor } from './interceptors/header.interceptor';
 import { SharedUiModule } from './shared-ui/shared-ui.module';
 import { MaterialSharedModule } from './material-shared/material-shared.module';
-import { HomeComponent } from './components/home/home.component';
 import { ToastrModule } from "ngx-toastr";
 import { ErrorInterceptor } from "./interceptors/error.interceptor";
 import { MemberDetailComponent } from './components/member-detail/member-detail.component';
@@ -20,7 +19,6 @@ import { GenderPipe } from './shared/utils/gender.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     MembersListComponent,
     MemberDetailComponent,
     PartyNamePipe,
