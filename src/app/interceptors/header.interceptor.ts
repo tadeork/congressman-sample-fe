@@ -21,9 +21,9 @@ export class HeaderInterceptor implements HttpInterceptor {
     }
 
     const modified = request.clone({
-      setHeaders: { 'X-API-Key': API_KEY },
+      setHeaders: { 'X-API-Key': API_KEY, 'accept': '*/*'},
     });
-    
+
     return next.handle(modified);
   }
 }
