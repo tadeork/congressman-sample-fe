@@ -1,6 +1,6 @@
 <div class="list">
   <mat-form-field>
-    <input type="text" placeholder="Search" matInput>
+    <input type="text" (keyup)="applyFilter($event.target)"  placeholder="Search" matInput>
   </mat-form-field>
   <mat-table [dataSource]="membersList" class="members-table mat-elevation-z8" matSort matSortDirection="asc">
     <ng-container matColumnDef="name">
