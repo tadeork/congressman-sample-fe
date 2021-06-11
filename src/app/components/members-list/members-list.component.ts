@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
 import { CongressService } from '../../services/congress.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { ToastrService } from 'ngx-toastr';
+import { ERROR_FETCHING_DATA } from '../../shared/constants/Messages';
 
 @Component({
   selector: 'members-list',
@@ -17,11 +19,13 @@ export class MembersListComponent implements OnInit {
   public dataSource = new MatTableDataSource<MemberList>();
   displayedColumns = ['name', 'title', 'party', 'state', 'gender'];
 
-  constructor(private congress$: CongressService, private router: Router) {}
+  constructor(private congress$: CongressService, private router: Router, private toastr$: ToastrService) {}
 
   ngOnInit(): void {
     this.congress$.getAllMembers().subscribe((res) => {
       this.dataSource.data = res;
+    }, error => {
+      this.toastr$.error(ERROR_FETCHING_DATA);
     });
   }
 
