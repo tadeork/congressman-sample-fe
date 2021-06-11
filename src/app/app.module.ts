@@ -14,6 +14,7 @@ import { ErrorInterceptor } from "./interceptors/error.interceptor";
 import { MemberDetailComponent } from './components/member-detail/member-detail.component';
 import { MembersListComponent } from "./components/members-list/members-list.component";
 import { PartyNamePipe } from './utils/party-name.pipe';
+import {LoggerInterceptor} from "./interceptors/logger.interceptor";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,12 @@ import { PartyNamePipe } from './utils/party-name.pipe';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
+      multi: true
+    },
+
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoggerInterceptor,
       multi: true
     }
   ],
