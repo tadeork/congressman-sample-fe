@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CongressService } from "../services/congress.service";
-import {Observable} from "rxjs";
-import MemberList from "../models/MemberList";
+import { CongressService } from "../../services/congress.service";
+import MemberList from "../../models/MemberList";
 
 @Component({
   selector: 'app-home',
