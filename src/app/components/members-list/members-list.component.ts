@@ -26,6 +26,8 @@ export class MembersListComponent implements OnInit {
   stateFilter = new FormControl('');
   genderFilter = new FormControl('');
 
+  toggleAdvanced = new FormControl(false);
+
   filterValues = {
     first_name: '',
     title: '',
@@ -34,17 +36,14 @@ export class MembersListComponent implements OnInit {
     gender: ''
   };
   displayedColumns = ['name', 'title', 'party', 'state', 'gender'];
-  loading = true;
-  showAdvancedSearch = true;
+  showAdvancedSearch = false;
 
   constructor(private congress$: CongressService, private router: Router, private toastr$: ToastrService) {}
 
   ngOnInit(): void {
     this.congress$.getAllMembers().subscribe((res) => {
       this.dataSource.data = res;
-      this.loading = false;
     }, error => {
-      this.loading = false;
       this.toastr$.error(ERROR_FETCHING_DATA);
     });
     this.setFilterInputForms();
@@ -53,7 +52,6 @@ export class MembersListComponent implements OnInit {
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    this.dataSource.filterPredicate = this.createFilter()
   }
 
   navigateDetails(e: any) {
@@ -114,5 +112,30 @@ export class MembersListComponent implements OnInit {
         && data.gender.toLowerCase().indexOf(searchTerms.gender) !== -1
         && data.state.toLowerCase().indexOf(searchTerms.state) !== -1;
     }
+  }
+
+  onToggleAdvanceChange() {
+    this.showAdvancedSearch = this.toggleAdvanced.value;
+    if (this.showAdvancedSearch) {
+      this.dataSource.filter = '';
+      this.dataSource.filterPredicate = this.createFilter()
+    } else {
+      this.dataSource.filterPredicate = this.filter();
+    }
+  }
+
+  /**
+   * Resets the filter fn to the original
+   */
+  filter(): (data: any, filter: string) => boolean {
+   return function (data, filter) {
+        const dataStr = Object.keys(data).reduce(function (currentTerm, key) {
+          // @ts-ignore
+          return currentTerm + data[key] + '◬';
+        }, '').toLowerCase();
+        const transformedFilter = filter.trim().toLowerCase();
+        return dataStr.indexOf(transformedFilter) != -1;
+      };
+
   }
 }

@@ -3,11 +3,14 @@
     <mat-form-field>
       <input
         type="text"
+        (keyup)="applyFilter($event.target)"
         placeholder="Search"
         matInput
       />
     </mat-form-field>
   </div>
+
+  <mat-slide-toggle [formControl]="toggleAdvanced" (change)="onToggleAdvanceChange()">Advanced search</mat-slide-toggle>
 
   <div *ngIf="showAdvancedSearch" class="advanced-search">
     <mat-form-field
