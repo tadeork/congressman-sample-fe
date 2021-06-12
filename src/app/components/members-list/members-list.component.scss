@@ -21,8 +21,14 @@
   border-color: currentColor;
 }
 
-.spinner-container {
-  height: 360px;
-  width: 390px;
-  position: fixed;
+.filter {
+  display: block;
+}
+
+.header-cell {
+  padding: 5px;
+}
+
+.advanced-search-field {
+  margin-left: 15px;
 }

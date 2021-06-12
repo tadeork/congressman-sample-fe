@@ -1,12 +1,67 @@
 <div class="list">
-  <mat-form-field>
-    <input
-      type="text"
-      (keyup)="applyFilter($event.target)"
-      placeholder="Search"
-      matInput
-    />
-  </mat-form-field>
+  <div *ngIf="!showAdvancedSearch" class="">
+    <mat-form-field>
+      <input
+        type="text"
+        placeholder="Search"
+        matInput
+      />
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="showAdvancedSearch" class="advanced-search">
+    <mat-form-field
+      class="advanced-search-field"
+    >
+      <input
+        type="text"
+        [formControl]="nameFilter"
+        placeholder="Search by name"
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field
+      class="advanced-search-field"
+    >
+      <input
+        type="text"
+        [formControl]="titleFilter"
+        placeholder="Search by title"
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field
+      class="advanced-search-field"
+    >
+      <input
+        type="text"
+        [formControl]="partyFilter"
+        placeholder="Search by party"
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field
+      class="advanced-search-field"
+    >
+      <input
+        type="text"
+        [formControl]="stateFilter"
+        placeholder="Search by state"
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field
+      class="advanced-search-field"
+    >
+      <input
+        type="text"
+        [formControl]="genderFilter"
+        placeholder="Search by gender"
+        matInput
+      />
+    </mat-form-field>
+  </div>
+
   <div class="mat-elevation-z8">
     <mat-table
       [dataSource]="dataSource"
@@ -15,7 +70,7 @@
       matSortDirection="asc"
     >
       <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header
+        <mat-header-cell *matHeaderCellDef mat-sort-header="first_name"
           >Name</mat-header-cell
         >
         <mat-cell *matCellDef="let element"

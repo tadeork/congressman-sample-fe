@@ -15,6 +15,7 @@ import { MembersListComponent } from './components/members-list/members-list.com
 import { PartyNamePipe } from './shared/utils/party-name.pipe';
 import { LoggerInterceptor } from './interceptors/logger.interceptor';
 import { GenderPipe } from './shared/utils/gender.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { GenderPipe } from './shared/utils/gender.pipe';
     ToastrModule.forRoot(),
     MaterialSharedModule,
     SharedUiModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {
