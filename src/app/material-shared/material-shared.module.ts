@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 const materialModules = [
   MatToolbarModule,
@@ -18,6 +20,8 @@ const materialModules = [
   MatSortModule,
   MatListModule,
   MatPaginatorModule,
+  MatProgressSpinnerModule,
+  MatSlideToggleModule
 ];
 
 @NgModule({
