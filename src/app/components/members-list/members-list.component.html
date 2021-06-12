@@ -10,12 +10,14 @@
     </mat-form-field>
   </div>
 
-  <mat-slide-toggle [formControl]="toggleAdvanced" (change)="onToggleAdvanceChange()">Advanced search</mat-slide-toggle>
+  <mat-slide-toggle
+    [formControl]="toggleAdvanced"
+    (change)="onToggleAdvanceChange()"
+    >Advanced search</mat-slide-toggle
+  >
 
   <div *ngIf="showAdvancedSearch" class="advanced-search">
-    <mat-form-field
-      class="advanced-search-field"
-    >
+    <mat-form-field class="advanced-search-field">
       <input
         type="text"
         [formControl]="nameFilter"
@@ -23,9 +25,7 @@
         matInput
       />
     </mat-form-field>
-    <mat-form-field
-      class="advanced-search-field"
-    >
+    <mat-form-field class="advanced-search-field">
       <input
         type="text"
         [formControl]="titleFilter"
@@ -33,9 +33,7 @@
         matInput
       />
     </mat-form-field>
-    <mat-form-field
-      class="advanced-search-field"
-    >
+    <mat-form-field class="advanced-search-field">
       <input
         type="text"
         [formControl]="partyFilter"
@@ -43,9 +41,7 @@
         matInput
       />
     </mat-form-field>
-    <mat-form-field
-      class="advanced-search-field"
-    >
+    <mat-form-field class="advanced-search-field">
       <input
         type="text"
         [formControl]="stateFilter"
@@ -53,9 +49,7 @@
         matInput
       />
     </mat-form-field>
-    <mat-form-field
-      class="advanced-search-field"
-    >
+    <mat-form-field class="advanced-search-field">
       <input
         type="text"
         [formControl]="genderFilter"

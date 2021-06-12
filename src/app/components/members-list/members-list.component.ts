@@ -10,7 +10,7 @@ import { FormControl } from '@angular/forms';
 import { ERROR_FETCHING_DATA } from '../../shared/constants/Messages';
 
 @Component({
-  selector: 'members-list',
+  selector: 'app-members-list',
   templateUrl: './members-list.component.html',
   styleUrls: ['./members-list.component.scss'],
 })
@@ -33,23 +33,30 @@ export class MembersListComponent implements OnInit {
     title: '',
     party: '',
     state: '',
-    gender: ''
+    gender: '',
   };
   displayedColumns = ['name', 'title', 'party', 'state', 'gender'];
   showAdvancedSearch = false;
 
-  constructor(private congress$: CongressService, private router: Router, private toastr$: ToastrService) {}
+  constructor(
+    private congress$: CongressService,
+    private router: Router,
+    private toastr$: ToastrService
+  ) {}
 
   ngOnInit(): void {
-    this.congress$.getAllMembers().subscribe((res) => {
-      this.dataSource.data = res;
-    }, error => {
-      this.toastr$.error(ERROR_FETCHING_DATA);
-    });
+    this.congress$.getAllMembers().subscribe(
+      (res) => {
+        this.dataSource.data = res;
+      },
+      (error) => {
+        this.toastr$.error(ERROR_FETCHING_DATA);
+      }
+    );
     this.setFilterInputForms();
   }
 
-  ngAfterViewInit() {
+  AfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
@@ -66,59 +73,46 @@ export class MembersListComponent implements OnInit {
   }
 
   setFilterInputForms() {
-    this.nameFilter.valueChanges
-      .subscribe(
-        first_name => {
-          this.filterValues.first_name = first_name;
-          this.dataSource.filter = JSON.stringify(this.filterValues);
-        }
-      );
-    this.titleFilter.valueChanges
-      .subscribe(
-        title => {
-          this.filterValues.title = title;
-          this.dataSource.filter = JSON.stringify(this.filterValues);
-        }
-      );
-    this.partyFilter.valueChanges
-      .subscribe(
-        party => {
-          this.filterValues.party = party;
-          this.dataSource.filter = JSON.stringify(this.filterValues);
-        }
-      );
-    this.stateFilter.valueChanges
-      .subscribe(
-        state => {
-          this.filterValues.state = state;
-          this.dataSource.filter = JSON.stringify(this.filterValues);
-        }
-      );
-    this.genderFilter.valueChanges
-      .subscribe(
-        gender => {
-          this.filterValues.gender = gender;
-          this.dataSource.filter = JSON.stringify(this.filterValues);
-        }
-      );
+    this.nameFilter.valueChanges.subscribe((first_name) => {
+      this.filterValues.first_name = first_name;
+      this.dataSource.filter = JSON.stringify(this.filterValues);
+    });
+    this.titleFilter.valueChanges.subscribe((title) => {
+      this.filterValues.title = title;
+      this.dataSource.filter = JSON.stringify(this.filterValues);
+    });
+    this.partyFilter.valueChanges.subscribe((party) => {
+      this.filterValues.party = party;
+      this.dataSource.filter = JSON.stringify(this.filterValues);
+    });
+    this.stateFilter.valueChanges.subscribe((state) => {
+      this.filterValues.state = state;
+      this.dataSource.filter = JSON.stringify(this.filterValues);
+    });
+    this.genderFilter.valueChanges.subscribe((gender) => {
+      this.filterValues.gender = gender;
+      this.dataSource.filter = JSON.stringify(this.filterValues);
+    });
   }
 
   createFilter(): (data: any, filter: string) => boolean {
-    return function(data: any, filter: string): boolean {
+    return function (data: any, filter: string): boolean {
       let searchTerms = JSON.parse(filter);
-      return data.first_name.toLowerCase().indexOf(searchTerms.first_name) !== -1
-        && data.title.toString().toLowerCase().indexOf(searchTerms.title) !== -1
-        && data.party.toLowerCase().indexOf(searchTerms.party) !== -1
-        && data.gender.toLowerCase().indexOf(searchTerms.gender) !== -1
-        && data.state.toLowerCase().indexOf(searchTerms.state) !== -1;
-    }
+      return (
+        data.first_name.toLowerCase().indexOf(searchTerms.first_name) !== -1 &&
+        data.title.toString().toLowerCase().indexOf(searchTerms.title) !== -1 &&
+        data.party.toLowerCase().indexOf(searchTerms.party) !== -1 &&
+        data.gender.toLowerCase().indexOf(searchTerms.gender) !== -1 &&
+        data.state.toLowerCase().indexOf(searchTerms.state) !== -1
+      );
+    };
   }
 
   onToggleAdvanceChange() {
     this.showAdvancedSearch = this.toggleAdvanced.value;
     if (this.showAdvancedSearch) {
       this.dataSource.filter = '';
-      this.dataSource.filterPredicate = this.createFilter()
+      this.dataSource.filterPredicate = this.createFilter();
     } else {
       this.dataSource.filterPredicate = this.filter();
     }
@@ -128,14 +122,15 @@ export class MembersListComponent implements OnInit {
    * Resets the filter fn to the original
    */
   filter(): (data: any, filter: string) => boolean {
-   return function (data, filter) {
-        const dataStr = Object.keys(data).reduce(function (currentTerm, key) {
+    return function (data, filter) {
+      const dataStr = Object.keys(data)
+        .reduce(function (currentTerm, key) {
           // @ts-ignore
           return currentTerm + data[key] + '◬';
-        }, '').toLowerCase();
-        const transformedFilter = filter.trim().toLowerCase();
-        return dataStr.indexOf(transformedFilter) != -1;
-      };
-
+        }, '')
+        .toLowerCase();
+      const transformedFilter = filter.trim().toLowerCase();
+      return dataStr.indexOf(transformedFilter) != -1;
+    };
   }
 }
