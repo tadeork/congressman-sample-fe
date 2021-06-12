@@ -1,12 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ErrorInterceptor } from './error.interceptor';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 describe('ErrorInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({
+    imports: [
+      ToastrModule.forRoot()
+    ],
     providers: [
-      ErrorInterceptor
-      ]
+      ErrorInterceptor,
+      {provide: ToastrService, useClass: ToastrService}
+    ],
   }));
 
   it('should be created', () => {
