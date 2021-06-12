@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import MemberList from '../../shared/models/MemberList';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -14,7 +14,7 @@ import { ERROR_FETCHING_DATA } from '../../shared/constants/Messages';
   templateUrl: './members-list.component.html',
   styleUrls: ['./members-list.component.scss'],
 })
-export class MembersListComponent implements OnInit {
+export class MembersListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort = new MatSort();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -56,7 +56,7 @@ export class MembersListComponent implements OnInit {
     this.setFilterInputForms();
   }
 
-  AfterViewInit() {
+  ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
