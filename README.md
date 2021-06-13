@@ -5,16 +5,19 @@ and renders a list.
 
 ## Dev guide
 Follow this steps to get the project running locally:
-<ol>
-<li>Clone the repo locally `git clone https://github.com/tadeork/congressman-sample-fe.git` </li>
-<li>Install dependencies: `npm i`</li>
-<li>Run local serve `ng serve` and visit `http://localhost:4200`</li>
-</ol>
-For testing follow this:
-<ul>
-<li>Run `ng test` or with `--coverage` flag to generate the coverage report</li>
-<li>Run `ng e2e` to get end to end tests.</li>
-</ul>
+
+1. Clone the repo locally `git clone https://github.com/tadeork/congressman-sample-fe.git`
+
+2. Install dependencies: `npm i`
+
+3. Run local serve `ng serve` and visit `http://localhost:4200`
+
+### For testing follow this:
+
+Run `ng test` or with `--coverage` flag to generate the coverage report
+
+Run `ng e2e` to get end to end tests.
+
 
 ## Functionalities
 - Displays a paginated list of all the members of the Congress
