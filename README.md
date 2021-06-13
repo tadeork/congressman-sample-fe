@@ -39,5 +39,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 I consider this as a simple version that covers the most basic use and shows some basic data. The congress members do a lot of different activities which could be displayed in the details views. In further releases this should be a feature to have.
 
 
-The advanced filter is using a walk around to get back to the original state of the MatTable filter function. This could be improved a lot.:w
+The advanced filter is using a walk around to get back to the original state of the MatTable filter function. This could be improved a lot.
 
