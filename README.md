@@ -41,6 +41,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+Run `ng test --coverage` to execute the unit tests with coverage report.
+
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
@@ -50,5 +52,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 I consider this as a simple version that covers the most basic use and shows some basic data. The congress members do a lot of different activities which could be displayed in the details views. In further releases this should be a feature to have.
 
 
-The advanced filter is using a walk around to get back to the original state of the MatTable filter function. This could be improved a lot.:w
+The advanced filter is using a walk around to get back to the original state of the MatTable filter function. This could be improved a lot.
 
