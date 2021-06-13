@@ -3,6 +3,19 @@
 This project displays a list of the members of the USA Congress. It takes the data from a public [API](https://projects.propublica.org/api-docs/congress-api/members/#lists-of-members)
 and renders a list. 
 
+## Dev guide
+Follow this steps to get the project running locally:
+<ol>
+<li>Clone the repo locally `git clone https://github.com/tadeork/congressman-sample-fe.git` </li>
+<li>Install dependencies: `npm i`</li>
+<li>Run local serve `ng serve` and visit `http://localhost:4200`</li>
+</ol>
+For testing follow this:
+<ol>
+<li>Run `ng test` or with `--coverage` flag to generate the coverage report</li>
+<li>Run `ng e2e` to get end to end tests.</li>
+</ol>
+
 ## Functionalities
 - Displays a paginated list of all the members of the Congress
 - Each element of the list is clickable to see the details of each member.
