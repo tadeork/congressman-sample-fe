@@ -7,10 +7,9 @@ and renders a list.
 Follow this steps to get the project running locally:
 
 1. Clone the repo locally `git clone https://github.com/tadeork/congressman-sample-fe.git`
-
 2. Install dependencies: `npm i`
-
-3. Run local serve `ng serve` and visit `http://localhost:4200`
+3. Run local dev serve `ng serve` and visit `http://localhost:4200`
+4. If you want a prod versrion run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. 
 
 ### For testing follow this:
 
@@ -31,24 +30,6 @@ Run `ng e2e` to get end to end tests.
 - The e2e library used was Cypress and follows a very simple use case.
 - For some unknown reason when the app does a request to the API the first one fails with an authorization token error, even though, the token is present in the call. That's why the interceptor to set the headers api-key has a retry function.
 
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-Run `ng test --coverage` to execute the unit tests with coverage report.
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 ## Further improvements
 
