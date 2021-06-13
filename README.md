@@ -11,10 +11,10 @@ Follow this steps to get the project running locally:
 <li>Run local serve `ng serve` and visit `http://localhost:4200`</li>
 </ol>
 For testing follow this:
-<ol>
+<ul>
 <li>Run `ng test` or with `--coverage` flag to generate the coverage report</li>
 <li>Run `ng e2e` to get end to end tests.</li>
-</ol>
+</ul>
 
 ## Functionalities
 - Displays a paginated list of all the members of the Congress
