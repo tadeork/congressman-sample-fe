@@ -7,13 +7,14 @@ and renders a list.
 Follow this steps to get the project running locally:
 
 1. Clone the repo locally `git clone https://github.com/tadeork/congressman-sample-fe.git`
-2. Install dependencies: `npm i`
-3. Run local dev serve `ng serve` and visit `http://localhost:4200`
-4. If you want a prod versrion run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. 
+2. Change directory to the cloned project `cd congressman-sample-fe`
+3. Install dependencies: `npm i`
+4. Run local dev serve `ng serve` and visit `http://localhost:4200`
+5. If you want a prod versrion run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory
 
 ### For testing follow this:
 
-Run `ng test` or with `--coverage` flag to generate the coverage report
+Run `ng test` or with `--coverage` flag to generate the coverage report.
 
 Run `ng e2e` to get end to end tests.
 
