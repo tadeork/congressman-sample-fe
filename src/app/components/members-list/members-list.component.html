@@ -2,6 +2,7 @@
   <div *ngIf="!showAdvancedSearch" class="">
     <mat-form-field>
       <input
+        id="search-list"
         type="text"
         (keyup)="applyFilter($event.target)"
         placeholder="Search"

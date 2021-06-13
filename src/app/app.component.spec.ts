@@ -28,10 +28,17 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('sample-project');
   });
 
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.nativeElement;
-  //   expect(compiled.querySelector('.content span').textContent).toContain('sample-project app is running!');
-  // });
+  it('should render header', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.header').textContent).toContain('Congress Members');
+  });
+
+  it('should render footer', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.footer-container').textContent).toContain('LenioLabs Exercise');
+  });
 });
