@@ -2,7 +2,7 @@ import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testin
 
 import { MemberDetailComponent } from './member-detail.component';
 import { CongressService } from '../../services/congress.service';
-import { mockedResponse } from '../../services/mockedResponse';
+import { mockedResponseDetails } from '../../services/mockedResponse';
 import { MaterialSharedModule } from '../../material-shared/material-shared.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
@@ -30,7 +30,7 @@ describe('MemberDetailComponent', () => {
   let fixture: ComponentFixture<MemberDetailComponent>;
 
   const serviceMock = {
-    getMemberDetail: (id: string) => of(mockedResponse)
+    getMemberDetail: (id: string) => of(mockedResponseDetails)
   }
 
   beforeEach(async () => {
@@ -64,7 +64,7 @@ describe('MemberDetailComponent', () => {
   });
 
   it('should get members detail', fakeAsync(() => {
-    spyOn(serviceMock, 'getMemberDetail').and.returnValue(of(mockedResponse));
+    spyOn(serviceMock, 'getMemberDetail').and.returnValue(of(mockedResponseDetails));
     fixture.detectChanges();
     component.member$.subscribe((res: MemberDetails) => {
       expect(res.first_name).toBe('Lamar')
