@@ -1,14 +1,24 @@
-# SampleProject
+# Congress Members display application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.3.
+This project displays a list of the members of the USA Congress. It takes the data from a public [API](https://projects.propublica.org/api-docs/congress-api/members/#lists-of-members)
+and renders a list. 
+
+## Functionalities
+- Displays a paginated list of all the members of the Congress
+- Each element of the list is clickable to see the details of each member.
+- The title on the toolbar is a link to return to the home page.
+- The main list comes with an input to filter over all the fields
+- In the main list there's a toggle button to display an advanced search inputs to filter over the displayed fields.
+
+## Some technical characteristics
+- This app uses a [library](https://github.com/scttcper/ngx-toastr) to display custom messages such as error messages when the API fails.
+- The e2e library used was Cypress and follows a very simple use case.
+- For some unknown reason when the app does a request to the API the first one fails with an authorization token error, even though, the token is present in the call. That's why the interceptor to set the headers api-key has a retry function.
+
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
@@ -22,6 +32,10 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Further improvements
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+I consider this as a simple version that covers the most basic use and shows some basic data. The congress members do a lot of different activities which could be displayed in the details views. In further releases this should be a feature to have.
+
+
+The advanced filter is using a walk around to get back to the original state of the MatTable filter function. This could be improved a lot.:w
+
